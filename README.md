@@ -14,7 +14,11 @@ We built a product that is able to identify the hand wash efficiency using AI an
 
 ## Business
 
-˜˜Loreum ...˜˜
+The simple gesture of properly wash the hands will impact on the availability of beds in the ICU and it also moves around $9 to $21 B accourding to the World Health Organization.
+
+We have a scalable model to fit the demands of our client. We will charge $0.50 per check and from our calculations, we will have 20% gross profit.
+
+We only have on competitor, Infectrack, but their solution do not support bacterial check, neither the guarantee of hands washed.
 
 ## Hands on - Code
 
@@ -50,4 +54,11 @@ If your hand is dirty, sorry, but you will have to wash it!
 
 For the next steps, we would like to make it more scalable, in a more afordable hardware and integrate it to a cloud platform, where the client is able to check the data in real time.
 
+### About the team - Higia
+
+Alex - Business
+Alice - Healthcare
+Renan - AI/Dev
+Thaís B. - Business
+Thaís H. - Design
 
