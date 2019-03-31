@@ -26,7 +26,7 @@ After your model training is complete, just drag and drop your test set to evalu
 
 <img width="1552" alt="Screenshot 2019-03-31 at 09 56 01" src="https://user-images.githubusercontent.com/29995158/55289294-3bcf7a00-539b-11e9-919c-b9135d32a439.png">
 
-After evaluation, our model was 79% accurate. As we had to create our own data set, it was limited. In order to improve the accuracy, we also used a 5-fold cross validation method to get our best model.
+After evaluation, our model was 79% accurate. This level of accuracy can be explained by the limited dataset, all data was created by us during the night. In order to improve it, we also used a 5-fold cross validation method to get our best model.
 
 ### Minimum Viable Product (MVP)
 
