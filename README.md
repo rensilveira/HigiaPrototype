@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Lorem ipsum
+Increasingly, hospitals are focusing on the improvement of quality indicators. Monitoring of hand hygiene is part of this quality improvement process. **Hand hygiene is widely regarded as the most effective preventive measure for health care-associated infection**. According to the WHO, **hospital infections reach approximately 14% of hospitalized patients**, possibly reaching **100,000 deaths a year**. Hand washing would be able to reduce infection cases by 70% to 80%. Bed availability increased by around 40% and grant an **economic burden of €13–24 billion year**.
+
+Hospitals generally use observers to monitor hand hygiene because direct observation is considered the criterion standard for evaluating hand hygiene compliance. However, **direct observation is generally able to capture only a very small fraction of hand hygiene opportunities**. Observers typically use relatively short observation periods and electronic counters, on the other hand, record 24 hours per day and offers an extra safe guard to the process.
 
 ## Real problem
 
