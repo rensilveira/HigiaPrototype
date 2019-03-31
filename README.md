@@ -1,6 +1,6 @@
 # Higia Prototype - School of AI Health Hackathon 2019 - Campinas, Brazil
 
-## How to train the model using CreateML:
+## How to train the model using CreateML
 
 Open ModelTrainer.playground, start the project, set some parameters in order to enhance your model accuracy (# of Iteration, and Augumentation sub-sections), and then drag and drop your dataset sliptted into folder categories.
 
@@ -12,4 +12,6 @@ After your model training is complete, just drag and drop your test set to evalu
 
 As we had to create our own data set, it was limited. In order to improve the accuracy, we used a 5-fold cross validation method to get our best model.
 
-Once we had our model, we loaded in our iOS app (HigiaPrototype) to proof the concept and we built a Minimum Viable Product (MVP) to demonstrate the potential use of this technology.
+## Minimum Viable Product (MVP)
+
+Once we had our model, we loaded in our iOS app (HigiaPrototype) to proof the concept and we built a MVP to demonstrate the potential use of this technology.
