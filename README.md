@@ -35,3 +35,14 @@ After evaluation, our model was 79% accurate. This level of accuracy can be expl
 Once we had our model, we were able to export it as a **.mlmodel** extension. This kind of extension can be converted to other common models, like TensorFlow, and then, be used on other platforms as well.
 
 As we wanted to proof the concept building a MVP as an iOS app to demonstrate the potential use of this technology, we used the model just like it was.
+
+If your hand is clean, you are allowed to get in!
+
+![Yes 2019-03-31 11_45_01](https://user-images.githubusercontent.com/29995158/55290639-19922800-53ac-11e9-9dd9-f1c6bcf635e4.gif)
+
+If your hand is dirty, sorry, but you will have to wash it!
+
+![NoLast](https://user-images.githubusercontent.com/29995158/55290751-7c37f380-53ad-11e9-8711-c170805b25d0.gif)
+
+
+
