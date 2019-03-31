@@ -6,10 +6,6 @@ Increasingly, hospitals are focusing on the improvement of quality indicators. M
 
 Hospitals generally use observers to monitor hand hygiene because direct observation is considered the criterion standard for evaluating hand hygiene compliance. However, **direct observation is generally able to capture only a very small fraction of hand hygiene opportunities**. Observers typically use relatively short observation periods and electronic counters, on the other hand, record 24 hours per day and offers an extra safe guard to the process.
 
-## Real problem
-
-Lorem ipsum
-
 ## Our solution
 
 Lorem ipsum
