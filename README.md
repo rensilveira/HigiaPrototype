@@ -8,6 +8,8 @@ Hospitals generally use observers to monitor hand hygiene because direct observa
 
 ## Our solution
 
+![AppIcon](https://user-images.githubusercontent.com/29995158/55290443-cfa84280-53a9-11e9-86a4-cd3b8f6a9bee.png)
+
 We built a product that is able to identify the hand wash efficiency and is also able to evaluate the hand hygiene complience. 
 
 ## Business
