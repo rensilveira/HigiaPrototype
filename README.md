@@ -10,7 +10,7 @@ Hospitals generally use observers to monitor hand hygiene because direct observa
 
 ![AppIcon](https://user-images.githubusercontent.com/29995158/55290443-cfa84280-53a9-11e9-86a4-cd3b8f6a9bee.png)
 
-We built a product that is able to identify the hand wash efficiency and is also able to evaluate the hand hygiene complience. 
+We built a product that is able to identify the hand wash efficiency using AI and is also able to evaluate the hand hygiene complience. 
 
 ## Business
 
@@ -36,6 +36,8 @@ Once we had our model, we were able to export it as a **.mlmodel** extension. Th
 
 As we wanted to proof the concept building a MVP as an iOS app to demonstrate the potential use of this technology, we used the model just like it was.
 
+Now it is time to check how the MVP behaves.
+
 If your hand is clean, you are allowed to get in!
 
 ![Yes 2019-03-31 11_45_01](https://user-images.githubusercontent.com/29995158/55290639-19922800-53ac-11e9-9dd9-f1c6bcf635e4.gif)
@@ -44,5 +46,8 @@ If your hand is dirty, sorry, but you will have to wash it!
 
 ![NoLast](https://user-images.githubusercontent.com/29995158/55290751-7c37f380-53ad-11e9-8711-c170805b25d0.gif)
 
+### Road map
+
+For the next steps, we would like to make it more scalable, in a more afordable hardware and integrate it to a cloud platform, where the client is able to check the data in real time.
 
 
