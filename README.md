@@ -26,6 +26,6 @@ After evaluation, our model was 79% accurate. As we had to create our own data s
 
 ### Minimum Viable Product (MVP)
 
-Once we had our model, we were able to export it as a .mlmodel extension. This kind of extension can be converted to other common model as TensorFlow and then, be used on other platforms as well.
+Once we had our model, we were able to export it as a **.mlmodel** extension. This kind of extension can be converted to other common models, like TensorFlow, and then, be used on other platforms as well.
 
 As we wanted to proof the concept building a MVP as an iOS app to demonstrate the potential use of this technology, we used the model just like it was.
