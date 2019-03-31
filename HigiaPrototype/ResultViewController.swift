@@ -29,7 +29,7 @@ class ResultViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet var productView: UIView!
-    @IBOutlet weak var productPhoto: UIImageView!
+    @IBOutlet weak var feedbackImage: UIImageView!
     @IBOutlet weak var descriptionText: UITextView!
     
     // MARK: - Public properties
@@ -67,30 +67,26 @@ class ResultViewController: UIViewController {
         guard let answer = productID else { return }
         
         if answer == Category.yes.rawValue {
-            descriptionText.text = Category.yes.rawValue
+            feedbackImage.image = UIImage(named: "Yes.pdf")
+            playSound(fileName: Sound.yes.rawValue)
         } else if answer == Category.no.rawValue {
-            descriptionText.text = Category.no.rawValue
+            feedbackImage.image = UIImage(named: "No.pdf")
+            playSound(fileName: Sound.no.rawValue)
         }
-        // TODO: Set feedback image
     }
     
-    private func playSound() {
-        guard let url = Bundle.main.url(forResource: "soundName", withExtension: "mp3") else { return }
+    private func playSound(fileName: String) {
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "mp3") else { return }
         
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
             
-            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-            
-            /* iOS 10 and earlier require the following line:
-             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
             
             guard let player = player else { return }
             
             player.play()
-            
         } catch let error {
             print(error.localizedDescription)
         }
