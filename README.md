@@ -28,4 +28,6 @@ As we had to create our own data set, it was limited. In order to improve the ac
 
 ### Minimum Viable Product (MVP)
 
-Once we had our model, we loaded in our iOS app (HigiaPrototype) to proof the concept and we built a MVP to demonstrate the potential use of this technology.
+Once we had our model, we were able to export it as a .mlmodel extension. This kind of extension can be converted to other common model as TensorFlow and then, be used on other platforms as well.
+
+As we wanted to proof the concept building a MVP as an iOS app to demonstrate the potential use of this technology, we used the model just like it was.
