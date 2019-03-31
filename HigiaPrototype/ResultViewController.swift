@@ -18,18 +18,19 @@ enum Category: String {
     case nothing = "Nothing"
 }
 
-enum Sound: String {
-    case yes = "loreum1"
-    case no = "loreum2"
-}
-
 class ResultViewController: UIViewController, AVAudioPlayerDelegate {
+    
+    // MARK: - Constants
+
+    private let kUnwindSegueIdentifier = "unwindToScanningWithUnwindSegue"
+    private let kAudioExtension = "mp3"
+    private let kYesImageName = "Yes.pdf"
+    private let kNoImageName = "No.pdf"
     
     // MARK: - IBOutlets
     
     @IBOutlet var productView: UIView!
     @IBOutlet weak var feedbackImage: UIImageView!
-    @IBOutlet weak var descriptionText: UITextView!
     
     // MARK: - Public properties
     
@@ -55,7 +56,7 @@ class ResultViewController: UIViewController, AVAudioPlayerDelegate {
     private func dismissAlert(delay: Int) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.seconds(delay)) {
             self.dismiss(animated: true)
-            self.performSegue(withIdentifier: "unwindToScanningWithUnwindSegue", sender: self)
+            self.performSegue(withIdentifier: self.kUnwindSegueIdentifier, sender: self)
         }
     }
     
@@ -66,34 +67,25 @@ class ResultViewController: UIViewController, AVAudioPlayerDelegate {
         guard let answer = productID else { return }
         
         if answer == Category.yes.rawValue {
-            feedbackImage.image = UIImage(named: "Yes.pdf")
+            feedbackImage.image = UIImage(named: kYesImageName)
             playSound(fileName: Category.yes.rawValue)
         } else if answer == Category.no.rawValue {
-            feedbackImage.image = UIImage(named: "No.pdf")
-            playSound(fileName: Category.yes.rawValue)
+            feedbackImage.image = UIImage(named: kNoImageName)
+            playSound(fileName: Category.no.rawValue)
         }
     }
     
     private func playSound(fileName: String) {
-        if let pathResource = Bundle.main.path(forResource: "Yes", ofType: "mp3") {
+        if let pathResource = Bundle.main.path(forResource: fileName, ofType: kAudioExtension) {
             let finishedStepSound = NSURL(fileURLWithPath: pathResource)
             audioPlayer = AVAudioPlayer()
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: finishedStepSound as URL)
                 if audioPlayer!.prepareToPlay() {
                     audioPlayer!.delegate = self
-                    if audioPlayer!.play() {
-                    } else {
-                        print("Sound file could not be played")
-                    }
-                } else {
-                    print("preparation failure")
+                    audioPlayer!.play()
                 }
-            } catch {
-                print("Sound file could not be found")
-            }
-        } else {
-            print("path not found")
+            } catch { return }
         }
     }
 }
