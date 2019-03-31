@@ -15,6 +15,7 @@
 		75FBF46E22505F1B00684E04 /* VisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FBF46D22505F1B00684E04 /* VisionViewController.swift */; };
 		75FBF47022505F4700684E04 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FBF46F22505F4700684E04 /* ResultViewController.swift */; };
 		75FBF47A2250785B00684E04 /* HandModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 75FBF4792250785B00684E04 /* HandModel.mlmodel */; };
+		75FF81BB2250A96600691898 /* Yes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 75FF81BA2250A96600691898 /* Yes.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		75FBF46D22505F1B00684E04 /* VisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionViewController.swift; sourceTree = "<group>"; };
 		75FBF46F22505F4700684E04 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		75FBF4792250785B00684E04 /* HandModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HandModel.mlmodel; sourceTree = "<group>"; };
+		75FF81BA2250A96600691898 /* Yes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Yes.mp3; path = HigiaPrototype/Assets.xcassets/Yes.dataset/Yes.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		75FBF44F22505EA900684E04 = {
 			isa = PBXGroup;
 			children = (
+				75FF81BA2250A96600691898 /* Yes.mp3 */,
 				75FBF45A22505EA900684E04 /* HigiaPrototype */,
 				75FBF45922505EA900684E04 /* Products */,
 			);
@@ -131,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75FF81BB2250A96600691898 /* Yes.mp3 in Resources */,
 				75FBF46622505EAD00684E04 /* LaunchScreen.storyboard in Resources */,
 				75FBF46322505EAD00684E04 /* Assets.xcassets in Resources */,
 				75FBF46122505EA900684E04 /* Main.storyboard in Resources */,

@@ -9,7 +9,6 @@
 import UIKit
 import AVFoundation
 import Vision
-import AVFoundation
 
 // MARK: - Enums
 
@@ -24,7 +23,7 @@ enum Sound: String {
     case no = "loreum2"
 }
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController, AVAudioPlayerDelegate {
     
     // MARK: - IBOutlets
     
@@ -38,8 +37,8 @@ class ResultViewController: UIViewController {
     
     // MARK: - Private properties
     
-    var player: AVAudioPlayer?
-    
+    var audioPlayer : AVAudioPlayer?
+
     // MARK: - Overrides
     
     override func viewDidLoad() {
@@ -68,27 +67,33 @@ class ResultViewController: UIViewController {
         
         if answer == Category.yes.rawValue {
             feedbackImage.image = UIImage(named: "Yes.pdf")
-            playSound(fileName: Sound.yes.rawValue)
+            playSound(fileName: Category.yes.rawValue)
         } else if answer == Category.no.rawValue {
             feedbackImage.image = UIImage(named: "No.pdf")
-            playSound(fileName: Sound.no.rawValue)
+            playSound(fileName: Category.yes.rawValue)
         }
     }
     
     private func playSound(fileName: String) {
-        guard let url = Bundle.main.url(forResource: fileName, withExtension: "mp3") else { return }
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-            
-            guard let player = player else { return }
-            
-            player.play()
-        } catch let error {
-            print(error.localizedDescription)
+        if let pathResource = Bundle.main.path(forResource: "Yes", ofType: "mp3") {
+            let finishedStepSound = NSURL(fileURLWithPath: pathResource)
+            audioPlayer = AVAudioPlayer()
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: finishedStepSound as URL)
+                if audioPlayer!.prepareToPlay() {
+                    audioPlayer!.delegate = self
+                    if audioPlayer!.play() {
+                    } else {
+                        print("Sound file could not be played")
+                    }
+                } else {
+                    print("preparation failure")
+                }
+            } catch {
+                print("Sound file could not be found")
+            }
+        } else {
+            print("path not found")
         }
     }
 }

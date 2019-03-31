@@ -59,7 +59,7 @@ class MainViewController: UIViewController {
     public func setupAVCapture() {
         var deviceInput: AVCaptureDeviceInput!
         
-        // Select a video device and make an input.
+        // Select a video device and make an input
         let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first
         do {
             deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
@@ -67,10 +67,7 @@ class MainViewController: UIViewController {
         
         session.beginConfiguration()
         
-        //        // The model input size is smaller than 640x480, so better resolution won't help us.
-        //        session.sessionPreset = .vga640x480
-        
-        // Add a video input.
+        // Add a video input
         guard session.canAddInput(deviceInput) else {
             session.commitConfiguration()
             return
@@ -80,7 +77,7 @@ class MainViewController: UIViewController {
         if session.canAddOutput(videoDataOutput) {
             session.addOutput(videoDataOutput)
             
-            // Add a video data output.
+            // Add a video data output
             videoDataOutput.alwaysDiscardsLateVideoFrames = true
             videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
             videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
