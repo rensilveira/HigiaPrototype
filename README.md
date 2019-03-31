@@ -10,6 +10,10 @@ Hospitals generally use observers to monitor hand hygiene because direct observa
 
 We built a product that is able to identify the hand wash efficiency and is also able to evaluate the hand hygiene complience. 
 
+## Business
+
+˜˜Loreum ...˜˜
+
 ## Hands on - Code
 
 ### How to train the model using CreateML
