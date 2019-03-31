@@ -14,7 +14,7 @@ class VisionViewController: MainViewController {
     
     // MARK: - Constants
 
-    private let kSegueIdentifier = "showProductSegue"
+    private let kSegueIdentifier = "showFeedbackSegue"
     private let kModelName = "HandModel"
     private let kModelExtension = "mlmodelc"
     
@@ -36,7 +36,7 @@ class VisionViewController: MainViewController {
     
     private let visionQueue = DispatchQueue(label: "com.example.apple-samplecode.HandModel.serialVisionQueue")
     
-    private var productViewOpen = false
+    private var feedbackViewOpen = false
     
     // MARK: - Overrides
     
@@ -61,7 +61,7 @@ class VisionViewController: MainViewController {
             return
         }
         
-        if productViewOpen {
+        if feedbackViewOpen {
             return
         }
         let registrationRequest = VNTranslationalImageRegistrationRequest(targetedCVPixelBuffer: pixelBuffer)
@@ -81,7 +81,7 @@ class VisionViewController: MainViewController {
             }
         }
         if self.sceneStabilityAchieved() {
-            showDetectionOverlay(true)
+//            showDetectionOverlay(true)
             if currentlyAnalyzedPixelBuffer == nil {
                 
                 // Retain the image buffer for Vision processing
@@ -94,9 +94,9 @@ class VisionViewController: MainViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let productVC = segue.destination as? ResultViewController, segue.identifier == kSegueIdentifier {
-            if let productID = sender as? String {
-                productVC.productID = productID
+        if let feedbackVC = segue.destination as? ResultViewController, segue.identifier == kSegueIdentifier {
+            if let feedbackID = sender as? String {
+                feedbackVC.feedbackID = feedbackID
             }
         }
     }
@@ -104,20 +104,20 @@ class VisionViewController: MainViewController {
     // MARK: - IBActions
     
     @IBAction func unwindToScanning(unwindSegue: UIStoryboardSegue) {
-        productViewOpen = false
+        feedbackViewOpen = false
         self.resetTranspositionHistory() // reset scene stability
     }
     
     // MARK: - Private properties
     
-    private func showProductInfo(_ identifier: String) {
+    private func presentFeedback(_ identifier: String) {
         // Perform all UI updates on the main queue.
         DispatchQueue.main.async(execute: {
-            if self.productViewOpen {
+            if self.feedbackViewOpen {
                 // Return if another observation already opened the feedback display
                 return
             }
-            self.productViewOpen = true
+            self.feedbackViewOpen = true
             self.performSegue(withIdentifier: self.kSegueIdentifier, sender: identifier)
         })
     }
@@ -133,7 +133,7 @@ class VisionViewController: MainViewController {
             if let results = request.results as? [VNBarcodeObservation] {
                 if let mainResult = results.first {
                     if let payloadString = mainResult.payloadStringValue {
-                        self.showProductInfo(payloadString)
+                        self.presentFeedback(payloadString)
                     }
                 }
             }
@@ -160,7 +160,8 @@ class VisionViewController: MainViewController {
                     
                     // Give an answer if confidence is > 0.9
                     if results.first!.confidence > 0.9  && results.first!.identifier != Category.nothing.rawValue {
-                        self.showProductInfo(results.first!.identifier)
+                        self.showDetectionOverlay(true)
+                        self.presentFeedback(results.first!.identifier)
                     }
                 }
             })

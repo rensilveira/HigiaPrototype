@@ -24,7 +24,7 @@
                     </view>
                     <connections>
                         <outlet property="previewView" destination="8bC-Xf-vdC" id="KdU-3x-Jsv"/>
-                        <segue destination="dbX-yB-FPi" kind="presentation" identifier="showProductSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="4mq-ou-f1b"/>
+                        <segue destination="dbX-yB-FPi" kind="presentation" identifier="showFeedbackSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="4mq-ou-f1b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -43,7 +43,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAg-XA-hoj" userLabel="ProductView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAg-XA-hoj" userLabel="FeedbackView">
                                 <rect key="frame" x="16" y="69" width="343" height="529"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUk-tw-gVa">
@@ -85,7 +85,7 @@
                     </view>
                     <connections>
                         <outlet property="feedbackImage" destination="oUq-6q-Bpo" id="9wx-Ne-apM"/>
-                        <outlet property="productView" destination="yAg-XA-hoj" id="WY9-1m-0bQ"/>
+                        <outlet property="feedbackView" destination="yAg-XA-hoj" id="WY9-1m-0bQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVQ-wS-j1x" userLabel="First Responder" sceneMemberID="firstResponder"/>

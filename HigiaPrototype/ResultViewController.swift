@@ -29,12 +29,12 @@ class ResultViewController: UIViewController, AVAudioPlayerDelegate {
     
     // MARK: - IBOutlets
     
-    @IBOutlet var productView: UIView!
+    @IBOutlet var feedbackView: UIView!
     @IBOutlet weak var feedbackImage: UIImageView!
     
     // MARK: - Public properties
     
-    var productID: String!
+    var feedbackID: String!
     
     // MARK: - Private properties
     
@@ -48,7 +48,7 @@ class ResultViewController: UIViewController, AVAudioPlayerDelegate {
         setupScreen()
         dismissAlert(delay: 1)
         
-        print(productID)
+        print(feedbackID)
     }
     
     // MARK: - Private functions
@@ -61,10 +61,10 @@ class ResultViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     private func setupScreen() {
-        productView.layer.cornerRadius = 10
-        productView.layer.masksToBounds = true
+        feedbackView.layer.cornerRadius = 10
+        feedbackView.layer.masksToBounds = true
         
-        guard let answer = productID else { return }
+        guard let answer = feedbackID else { return }
         
         if answer == Category.yes.rawValue {
             feedbackImage.image = UIImage(named: kYesImageName)
