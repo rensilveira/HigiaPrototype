@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Vision
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     // MARK: - IBOutlets
     
@@ -118,7 +118,7 @@ class ViewController: UIViewController {
 
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 
-extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension MainViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         // Implement this in the subclass
     }

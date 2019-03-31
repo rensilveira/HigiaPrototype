@@ -8,26 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		75FBF45C22505EA900684E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FBF45B22505EA900684E04 /* AppDelegate.swift */; };
-		75FBF45E22505EA900684E04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FBF45D22505EA900684E04 /* ViewController.swift */; };
+		75FBF45E22505EA900684E04 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FBF45D22505EA900684E04 /* MainViewController.swift */; };
 		75FBF46122505EA900684E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75FBF45F22505EA900684E04 /* Main.storyboard */; };
 		75FBF46322505EAD00684E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75FBF46222505EAD00684E04 /* Assets.xcassets */; };
 		75FBF46622505EAD00684E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75FBF46422505EAD00684E04 /* LaunchScreen.storyboard */; };
 		75FBF46E22505F1B00684E04 /* VisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FBF46D22505F1B00684E04 /* VisionViewController.swift */; };
 		75FBF47022505F4700684E04 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FBF46F22505F4700684E04 /* ResultViewController.swift */; };
-		75FBF47222505FC700684E04 /* hand_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 75FBF47122505FC700684E04 /* hand_model.mlmodel */; };
+		75FBF47A2250785B00684E04 /* HandModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 75FBF4792250785B00684E04 /* HandModel.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		75FBF45822505EA900684E04 /* HigiaPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HigiaPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FBF45B22505EA900684E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		75FBF45D22505EA900684E04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		75FBF45D22505EA900684E04 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		75FBF46022505EA900684E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		75FBF46222505EAD00684E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75FBF46522505EAD00684E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75FBF46722505EAD00684E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75FBF46D22505F1B00684E04 /* VisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionViewController.swift; sourceTree = "<group>"; };
 		75FBF46F22505F4700684E04 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		75FBF47122505FC700684E04 /* hand_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = hand_model.mlmodel; sourceTree = "<group>"; };
+		75FBF4792250785B00684E04 /* HandModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HandModel.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +61,13 @@
 			isa = PBXGroup;
 			children = (
 				75FBF45B22505EA900684E04 /* AppDelegate.swift */,
-				75FBF45D22505EA900684E04 /* ViewController.swift */,
+				75FBF45D22505EA900684E04 /* MainViewController.swift */,
 				75FBF46D22505F1B00684E04 /* VisionViewController.swift */,
 				75FBF46F22505F4700684E04 /* ResultViewController.swift */,
 				75FBF45F22505EA900684E04 /* Main.storyboard */,
+				75FBF4792250785B00684E04 /* HandModel.mlmodel */,
 				75FBF46222505EAD00684E04 /* Assets.xcassets */,
 				75FBF46422505EAD00684E04 /* LaunchScreen.storyboard */,
-				75FBF47122505FC700684E04 /* hand_model.mlmodel */,
 				75FBF46722505EAD00684E04 /* Info.plist */,
 			);
 			path = HigiaPrototype;
@@ -144,11 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75FBF45E22505EA900684E04 /* ViewController.swift in Sources */,
+				75FBF45E22505EA900684E04 /* MainViewController.swift in Sources */,
 				75FBF46E22505F1B00684E04 /* VisionViewController.swift in Sources */,
-				75FBF47222505FC700684E04 /* hand_model.mlmodel in Sources */,
 				75FBF45C22505EA900684E04 /* AppDelegate.swift in Sources */,
 				75FBF47022505F4700684E04 /* ResultViewController.swift in Sources */,
+				75FBF47A2250785B00684E04 /* HandModel.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

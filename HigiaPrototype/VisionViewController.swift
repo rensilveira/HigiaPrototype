@@ -10,7 +10,13 @@ import UIKit
 import AVFoundation
 import Vision
 
-class VisionViewController: ViewController {
+class VisionViewController: MainViewController {
+    
+    // MARK: - Constants
+
+    private let kSegueIdentifier = "showProductSegue"
+    private let kModelName = "HandModel"
+    private let kModelExtension = "mlmodelc"
     
     // MARK: - Private properties
     
@@ -25,10 +31,10 @@ class VisionViewController: ViewController {
     private var transpositionHistoryPoints: [CGPoint] = [ ]
     private var previousPixelBuffer: CVPixelBuffer?
     
-    // The current pixel buffer undergoing analysis. Run requests in a serial fashion, one after another.
+    // The current pixel buffer undergoing analysis. Run requests in a serial fashion, one after another
     private var currentlyAnalyzedPixelBuffer: CVPixelBuffer?
     
-    private let visionQueue = DispatchQueue(label: "com.example.apple-samplecode.hand_model.serialVisionQueue")
+    private let visionQueue = DispatchQueue(label: "com.example.apple-samplecode.HandModel.serialVisionQueue")
     
     private var productViewOpen = false
     
@@ -78,7 +84,7 @@ class VisionViewController: ViewController {
             showDetectionOverlay(true)
             if currentlyAnalyzedPixelBuffer == nil {
                 
-                // Retain the image buffer for Vision processing.
+                // Retain the image buffer for Vision processing
                 currentlyAnalyzedPixelBuffer = pixelBuffer
                 analyzeCurrentImage()
             }
@@ -88,7 +94,7 @@ class VisionViewController: ViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let productVC = segue.destination as? ResultViewController, segue.identifier == "showProductSegue" {
+        if let productVC = segue.destination as? ResultViewController, segue.identifier == kSegueIdentifier {
             if let productID = sender as? String {
                 productVC.productID = productID
             }
@@ -112,7 +118,7 @@ class VisionViewController: ViewController {
                 return
             }
             self.productViewOpen = true
-            self.performSegue(withIdentifier: "showProductSegue", sender: identifier)
+            self.performSegue(withIdentifier: self.kSegueIdentifier, sender: identifier)
         })
     }
     
@@ -125,8 +131,8 @@ class VisionViewController: ViewController {
         // Setup object detection
         let objectDetection = VNDetectBarcodesRequest(completionHandler: { (request, error) in
             if let results = request.results as? [VNBarcodeObservation] {
-                if let mainBarcode = results.first {
-                    if let payloadString = mainBarcode.payloadStringValue {
+                if let mainResult = results.first {
+                    if let payloadString = mainResult.payloadStringValue {
                         self.showProductInfo(payloadString)
                     }
                 }
@@ -134,7 +140,7 @@ class VisionViewController: ViewController {
         })
         self.analysisRequests = ([objectDetection])
         
-        guard let modelURL = Bundle.main.url(forResource: "hand_model", withExtension: "mlmodelc") else {
+        guard let modelURL = Bundle.main.url(forResource: kModelName, withExtension: kModelExtension) else {
             return NSError(domain: "VisionViewController", code: -1, userInfo: [NSLocalizedDescriptionKey: "The model file is missing."])
         }
         guard let objectRecognition = createClassificationRequest(modelURL: modelURL) else {
@@ -153,7 +159,7 @@ class VisionViewController: ViewController {
                     print("\(results.first!.identifier) : \(results.first!.confidence)")
                     
                     // Give an answer if confidence is > 0.9
-                    if results.first!.confidence > 0.9 {
+                    if results.first!.confidence > 0.9  && results.first!.identifier != Category.nothing.rawValue {
                         self.showProductInfo(results.first!.identifier)
                     }
                 }
@@ -167,13 +173,13 @@ class VisionViewController: ViewController {
     
     /// - Tag: AnalyzeImage
     private func analyzeCurrentImage() {
-        // Most computer vision tasks are not rotation-agnostic, so it is important to pass in the orientation of the image with respect to device.
+        // Most computer vision tasks are not rotation-agnostic, so it is important to pass in the orientation of the image with respect to device
         let orientation = exifOrientationFromDeviceOrientation()
         
         let requestHandler = VNImageRequestHandler(cvPixelBuffer: currentlyAnalyzedPixelBuffer!, orientation: orientation)
         visionQueue.async {
             do {
-                // Release the pixel buffer when done, allowing the next buffer to be processed.
+                // Release the pixel buffer when done, allowing the next buffer to be processed
                 defer { self.currentlyAnalyzedPixelBuffer = nil }
                 try requestHandler.perform(self.analysisRequests)
             } catch {
@@ -197,9 +203,9 @@ class VisionViewController: ViewController {
     /// - Tag: CheckSceneStability
     private func sceneStabilityAchieved() -> Bool {
         
-        // Determine if we have enough evidence of stability.
+        // Determine if we have enough evidence of stability
         if transpositionHistoryPoints.count == maximumHistoryLength {
-            // Calculate the moving average.
+            // Calculate the moving average
             var movingAverage: CGPoint = CGPoint.zero
             for currentPoint in transpositionHistoryPoints {
                 movingAverage.x += currentPoint.x
@@ -231,4 +237,3 @@ class VisionViewController: ViewController {
         rootLayer.addSublayer(detectionOverlay)
     }
 }
-
